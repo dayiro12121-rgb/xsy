@@ -1,0 +1,597 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #050505;
+    --surface: #0d0d0d;
+    --surface-light: #151515;
+    --border: rgba(255, 255, 255, 0.08);
+    --text: #ffffff;
+    --muted: #8c8c8c;
+    --accent: #ffffff;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   BANNER
+========================= */
+
+.side-banner {
+    position: fixed;
+    left: 0;
+    top: 0;
+
+    width: 155px;
+    height: 100vh;
+
+    background:
+        linear-gradient(
+            180deg,
+            #111111 0%,
+            #080808 50%,
+            #030303 100%
+        );
+
+    border-right: 1px solid var(--border);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 35px 20px;
+
+    z-index: 100;
+}
+
+.banner-logo {
+    font-size: 30px;
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+.banner-line {
+    width: 30px;
+    height: 1px;
+
+    background: #ffffff;
+
+    margin: 25px 0 35px;
+}
+
+.banner-text {
+    font-size: 10px;
+    letter-spacing: 4px;
+    color: #777;
+
+    writing-mode: vertical-rl;
+
+    margin: 14px 0;
+}
+
+.banner-bottom {
+    margin-top: auto;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.banner-bottom span {
+    font-size: 8px;
+    letter-spacing: 3px;
+    color: #666;
+}
+
+.banner-bottom strong {
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.main-content {
+    margin-left: 155px;
+    max-width: 1500px;
+    padding: 0 55px;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+    height: 90px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-logo {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.brand-name {
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #777;
+}
+
+.navigation {
+    display: flex;
+    gap: 30px;
+}
+
+.navigation a {
+    color: #777;
+    text-decoration: none;
+
+    font-size: 13px;
+
+    transition: 0.2s;
+}
+
+.navigation a:hover {
+    color: white;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 520px;
+
+    display: flex;
+    align-items: center;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.hero-label,
+.section-label {
+    font-size: 9px;
+    letter-spacing: 4px;
+    color: #666;
+}
+
+.hero h1 {
+    margin-top: 20px;
+
+    font-size: clamp(48px, 7vw, 90px);
+
+    line-height: 0.95;
+
+    letter-spacing: -5px;
+}
+
+.hero h1 span {
+    color: #666;
+}
+
+.hero p {
+    margin-top: 25px;
+
+    color: #777;
+
+    max-width: 450px;
+
+    line-height: 1.7;
+
+    font-size: 14px;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search-box {
+    margin-top: 35px;
+
+    width: min(550px, 100%);
+
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 20px;
+
+    background: #0c0c0c;
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    transition: 0.25s;
+}
+
+.search-box:focus-within {
+    border-color: rgba(255,255,255,0.3);
+}
+
+.search-icon {
+    color: #777;
+
+    font-size: 24px;
+
+    margin-right: 12px;
+}
+
+.search-box input {
+    width: 100%;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+
+    color: white;
+
+    font-size: 13px;
+}
+
+.search-box input::placeholder {
+    color: #555;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    padding: 80px 0;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    margin-bottom: 30px;
+}
+
+.section h2 {
+    margin-top: 8px;
+
+    font-size: 32px;
+
+    letter-spacing: -1px;
+}
+
+.view-all {
+    background: transparent;
+    border: none;
+
+    color: #777;
+
+    cursor: pointer;
+
+    font-size: 12px;
+}
+
+.view-all:hover {
+    color: white;
+}
+
+
+/* =========================
+   TRENDING
+========================= */
+
+.trending-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+.music-card {
+    min-width: 0;
+
+    cursor: pointer;
+}
+
+.cover {
+    aspect-ratio: 1 / 1;
+
+    background:
+        linear-gradient(
+            135deg,
+            #222,
+            #080808
+        );
+
+    border: 1px solid var(--border);
+
+    border-radius: 7px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    transition: 0.25s;
+
+    overflow: hidden;
+}
+
+.music-card:hover .cover {
+    transform: translateY(-5px);
+}
+
+.play-button {
+    width: 45px;
+    height: 45px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: black;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 12px;
+
+    opacity: 0;
+
+    transform: scale(0.8);
+
+    transition: 0.25s;
+}
+
+.music-card:hover .play-button {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.card-info {
+    padding-top: 13px;
+}
+
+.card-info h3 {
+    font-size: 13px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+.card-info p {
+    margin-top: 5px;
+
+    font-size: 11px;
+
+    color: #666;
+}
+
+
+/* =========================
+   LATEST EDITS
+========================= */
+
+.edits-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+.edit-card {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+
+    border-radius: 8px;
+
+    overflow: hidden;
+}
+
+.edit-video {
+    aspect-ratio: 16 / 9;
+
+    background: #020202;
+}
+
+.video-placeholder {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle,
+            #222 0%,
+            #050505 70%
+        );
+}
+
+.video-placeholder span {
+    width: 55px;
+    height: 55px;
+
+    border-radius: 50%;
+
+    background: white;
+
+    color: black;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 14px;
+}
+
+.edit-info {
+    min-height: 75px;
+
+    padding: 15px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+}
+
+.edit-info h3 {
+    font-size: 14px;
+}
+
+.edit-info p {
+    margin-top: 5px;
+
+    color: #666;
+
+    font-size: 11px;
+}
+
+.share-button {
+    width: 35px;
+    height: 35px;
+
+    background: #161616;
+
+    color: white;
+
+    border: 1px solid var(--border);
+
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer {
+    padding: 60px 0;
+
+    text-align: center;
+}
+
+.footer-logo {
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.footer p {
+    margin-top: 10px;
+
+    color: #666;
+
+    font-size: 11px;
+}
+
+.footer span {
+    display: block;
+
+    margin-top: 25px;
+
+    color: #444;
+
+    font-size: 10px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .side-banner {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 0;
+
+        padding: 0 20px;
+    }
+
+    .header {
+        height: 70px;
+    }
+
+    .navigation {
+        display: none;
+    }
+
+    .hero {
+        min-height: 500px;
+    }
+
+    .hero h1 {
+        font-size: 52px;
+        letter-spacing: -3px;
+    }
+
+    .trending-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .edits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+}
